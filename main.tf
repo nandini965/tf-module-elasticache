@@ -43,10 +43,10 @@ resource "aws_elasticache_replication_group" "main" {
   preferred_cache_cluster_azs = ["us-west-2a", "us-west-2b"]
   replication_group_id        = "${var.name}-${var.env}-elasticache"
   description                 = "${var.name}-${var.env}-elasticache"
-  node_type                   = "var.node_type"
-  num_node_groups             = "var.num_node_groups"
+  node_type                   = var.node_type
+  num_node_groups             = var.num_node_groups
   parameter_group_name        = "aws_elasticache_parameter_group.main.name"
-  replicas_per_node_group = var.replicas_per_node_group
+  replicas_per_node_group     = var.replicas_per_node_group
   vpc_security_group_ids          = [aws_security_group.main.id]
   port                        = 6379
   subnet_group_name            = aws_elasticache_subnet_group.main.name
