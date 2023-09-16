@@ -38,7 +38,7 @@ resource "aws_docdb_cluster_parameter_group" "main" {
 
 }
 
-resource "aws_elasticache_replication_group" "example" {
+resource "aws_elasticache_replication_group" "main" {
   automatic_failover_enabled  = true
   preferred_cache_cluster_azs = ["us-west-2a", "us-west-2b"]
   replication_group_id        = "${var.name}-${var.env}-elasticache"
