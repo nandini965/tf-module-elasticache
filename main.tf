@@ -47,7 +47,7 @@ resource "aws_elasticache_replication_group" "main" {
   num_node_groups             = var.num_node_groups
   parameter_group_name        = "aws_elasticache_parameter_group.main.name"
   replicas_per_node_group     = var.replicas_per_node_group
-  vpc_security_group_ids          = [aws_security_group.main.id]
   port                        = 6379
   subnet_group_name            = aws_elasticache_subnet_group.main.name
+  vpc_security_group_ids      = [aws_security_group.main.id]
 }
